@@ -148,7 +148,10 @@ void setupTopology(const TopologyState& state) {
     ina219SolManager.configure(state.ina219SolDevice);
 
     // Configure camera handlers | NOT ALL SATS HAVE CAMERAS
-    cameraHandler.configure(0);  // Camera 0
+    cameraHandler.configure(0);   // Camera 0
+    cameraHandler2.configure(1);  // Camera 1
+    peripheralUartDriver2.configure(state.peripheralUart2, state.peripheralBaudRate2);
+    // TODO: Update Configuration Per Satellite
 
     // Configure TMP112 temperature sensor managers
     tmp112Face0Manager.configure(state.tca9548aDevice, state.muxChannel0Device, state.face0TempDevice, true);
